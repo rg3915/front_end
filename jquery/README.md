@@ -190,8 +190,33 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
  
 ### Traversing and Filtering
 
+	.data(<name>)
+	.data(<name>, <value>)
+
 **3.16 Traversing and Filtering**
 
+	$('.vacation').first().data('price');
+
+Refatorando...
+
+	$(document).ready(function(){
+		$('button').on('click', function() {
+			var price = $('<p>From $399.99</p>');
+			$(this).closest('.vacation').append(price);
+			$(this).remove();
+		});
+	});
+
+... temos
+
+	$(document).ready(function(){
+		$('button').on('click', function() {
+			var amount = $(this).closest('.vacation').data('price');
+			var price = $('<p>From $'+amount+'</p>');
+			$(this).closest('.vacation').append(price);
+			$(this).remove();
+		});
+	});
 
 
 **3.17 Fetching Data From the DOM I**
@@ -204,6 +229,15 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
 
 **3.19 Refactoring**
 
+	$(document).ready(function(){
+		$('button').on('click', function() {
+			var vacation = $(this).closest('.vacation');
+			var amount = vacation.data('price');
+			var price = $('<p>From $'+amount+'</p>');
+			vacation.append(price);
+			$(this).remove();
+		});
+	});
 
 
 **3.20 Better On Handlers**
