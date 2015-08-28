@@ -106,11 +106,17 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
 
 **3.4 Adding to the DOM I**
 
-
+	.append(<element>)
+	.prepend(<element>)
+	.after(<element>)
+	.before(<element>)
 
 **3.5 Adding to the DOM II**
 
-
+	.appendTo(<element>)
+	.prependTo(<element>)
+	.insertAfter(<element>)
+	.insertBefore(<element>)
 
 **3.6 Removing From the DOM**
 
@@ -119,17 +125,30 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
  
 ### Acting on Interaction
 
+
 **3.7 Acting on Interaction**
 
-
+	$(document).ready(function() {
+		// this function runs when the DOM is ready
+	});
 
 **3.8 Click Interaction**
 
-
+	$(document).ready(function() {
+		$('button').on('click', function() {
+			// run this function on click
+		});
+	});
 
 **3.9 Acting on Click**
 
-
+$(document).ready(function(){
+	$('button').on('click', function() {
+		var price = $('<p>From $399.99</p>');
+		$('.vacation').append(price);
+		$('button').remove();
+	});
+});
 
 **3.10 On Page Load**
 
@@ -139,6 +158,7 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
 ### Refactor Using Traversing
 
 **3.11 Refactor Using Traversing**
+
 
 
 
