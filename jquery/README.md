@@ -242,7 +242,14 @@ Refatorando...
 
 **3.20 Better On Handlers**
 
-
+	$(document).ready(function(){
+		$('button').on('click', function() {
+			...
+			$('.vacation').on('click', 'button', function() {});
+		});
+	});
+	
+Event delegation.
 
 **3.21 New Filter I**
 

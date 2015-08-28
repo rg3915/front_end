@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	$('button').on('click', function() {
+	// $('button').on('click', function() {
+	$('.vacation').on('click', 'button', function() {
 		// create a <p> node with the price
 		// var price = $('<p>From $399.99</p>');
 		var vacation = $(this).closest('.vacation');
