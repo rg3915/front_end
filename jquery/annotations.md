@@ -142,13 +142,13 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
 
 **3.9 Acting on Click**
 
-$(document).ready(function(){
-	$('button').on('click', function() {
-		var price = $('<p>From $399.99</p>');
-		$('.vacation').append(price);
-		$('button').remove();
+	$(document).ready(function(){
+		$('button').on('click', function() {
+			var price = $('<p>From $399.99</p>');
+			$('.vacation').append(price);
+			$('button').remove();
+		});
 	});
-});
 
 **3.10 On Page Load**
 
@@ -159,15 +159,24 @@ $(document).ready(function(){
 
 **3.11 Refactor Using Traversing**
 
-
+	$(document).ready(function(){
+		$('button').on('click', function() {
+			var price = $('<p>From $399.99</p>');
+			$('.vacation').append(price);
+			$(this).remove();
+		});
+	});
 
 
 **3.12 Removing the Clicked Button**
 
+	$(this).remove();
 
 
 **3.13 Relative Traversing I**
 
+	// $(this).after(price); // NO
+	$(this).closest('.vacation').append(price);
 
 
 **3.14 Relative Traversing II**
