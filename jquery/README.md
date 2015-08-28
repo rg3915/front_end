@@ -253,10 +253,25 @@ Event delegation.
 
 **3.21 New Filter I**
 
+Veja os comandos
+
+	.addClass(<class>)
+	.removeClass(<class>)
+
+Então
+
+	// find all vacations that are on-sale
+	$('#filters').on('click', '.onsale-filter', function() {
+		// add a class to these vacations
+		$('.vacation').filter('.onsale').addClass('highlighted');
+	});
 
 
 **3.22 New Filter II**
 
+	$('#filters').on('click', '.expiring-filter', function() {
+		$('.vacation').filter('.expiring').addClass('highlighted');
+	});
 
 
 **3.23 New Filter III**

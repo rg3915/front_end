@@ -10,4 +10,14 @@ $(document).ready(function(){
 		$(this).remove();
 		// price.appendTo($('.vacation'));
 	});
+	// find all vacations that are on-sale
+	$('#filters').on('click', '.onsale-filter', function() {
+		// remove highlighted
+		$('.highlighted').removeClass('highlighted');
+		// add a class to these vacations
+		$('.vacation').filter('.onsale').addClass('highlighted');
+	});
+	$('#filters').on('click', '.expiring-filter', function() {
+		$('.vacation').filter('.expiring').addClass('highlighted');
+	});
 });
