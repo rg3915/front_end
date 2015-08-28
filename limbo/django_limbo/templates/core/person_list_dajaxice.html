@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load dajaxice_templatetags %}
+
+{% block title %}
+    <title>Person Listing</title>
+{% endblock title %}
+
+{% block js %}
+    {% dajaxice_js_import %}
+{% endblock js %}
+
+{% block content %}
+    <!-- search form -->
+    <form class="navbar-form navbar-right" action="." method="get">
+        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+
+    <h1>Lista de Pessoas <font size="3">(Nomes fictícios)</font></h1>
+
+    <div>
+        {% if person_list %}
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Fone</th>
+                    <th>Nascimento</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for person in person_list %}
+                <tr>
+                    <td><a href="{{ person.get_person_detail_url }}">{{ person.full_name }}</a></td>
+                    <td>{{ person.cpf }}</td>
+                    <td>{{ person.email }}</td>
+                    <td>{{ person.phone }}</td>
+                    <td>{{ person.birthdate|date:"d/m/Y" }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p class="lead text-danger">Sem itens na lista.</p>
+        {% endif %}
+    </div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

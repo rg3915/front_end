@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Person Listing</title>
+{% endblock title %}
+
+{% block js %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#btnPersons").click(function(){
+            $.ajax({
+                type: "GET",
+                url: "/get_person/",
+                dataType: "json",
+                success: function(result){
+                    var data = JSON.parse(result);
+                    $("#corpoTabela").empty();
+                    $.each(data, function(i, item){
+                        $("#corpoTabela").append('<tr>' +
+                        '<td>' +
+                        item.fields.firstname + " " + 
+                        item.fields.lastname + 
+                        '</td>' +
+                        '<td>' +
+                        item.fields.cpf + 
+                        '</td>' +
+                        '<td>' +
+                        item.fields.email + 
+                        '</td>' +
+                        '<td>' +
+                        item.fields.phone + 
+                        '</td>' +
+                        '<td>' +
+                        item.fields.birthdate + 
+                        '</td>' +
+                        '</tr>');
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+{% endblock js %}
+
+{% block content %}
+
+    <h1>Lista de Pessoas <font size="3">(Nomes fictícios)</font></h1>
+
+        <input type="button" id="btnPersons" class="btn btn-lg btn-primary" value="Mostrar">
+    <div>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Fone</th>
+                    <th>Nascimento</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela">
+                <!-- o for do Django ficava aqui -->
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+<html>
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+
+  {% block javascript %}
+    <!-- Latest JQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
+  {% endblock javascript %}
+
+
+    {% bootstrap_javascript %}
+
+  <link rel="icon" href="http://s3.amazonaws.com/snaaakes-static/img/colophon/django.png">
+
+    {% block title %}
+        <title>Django-min</title>
+    {% endblock title %}
+
+  <style>
+    body {
+      padding-top: 70px;
+    }
+  </style>
+
+    {% block js %}
+      
+    {% endblock js %}
+
+</head>
+
+<body>
+
+  {% include "menu.html" %}
+
+  <div class="container">
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+
+
+</body>
+</html>
+
