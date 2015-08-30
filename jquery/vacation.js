@@ -39,4 +39,12 @@ $(document).ready(function(){
 		// Set the total to price * quantity
 		$('#total').text(price * quantity);
 	});
+
+	// Showing comments
+	$('.vacation').on('click', '.expand', function(event) {
+		event.preventDefault();
+		// Find the comments ul
+		// Show the comments ul
+		$(this).closest('.vacation').find('.comments').fadeToggle();
+	});
 });

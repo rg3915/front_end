@@ -457,7 +457,9 @@ E o total
 
 **4.17 Link Layover**
 
-
+	.fadeIn()
+	.fadeOut()
+	.fadeToggle()
 
 **4.18 Link Events I**
 
@@ -472,6 +474,21 @@ E o total
 
 
 **4.21 Event Parameter II**
+
+	$('.vacation').on('click', '.expand', function() {
+		// Find the comments ul
+		// Show the comments ul
+	});
+
+
+
+	$('.vacation').on('click', '.expand', function() {
+		$(this).closest('.vacation').find('.comments').fadeToggle();
+	});
+
+
+	event.preventDefault();
+ 
 
 
 ## Level 5 - Styling
