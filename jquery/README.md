@@ -257,6 +257,7 @@ Veja os comandos
 
 	.addClass(<class>)
 	.removeClass(<class>)
+	.toggleClass()
 
 Então
 
@@ -480,12 +481,13 @@ E o total
 		// Show the comments ul
 	});
 
-
+and
 
 	$('.vacation').on('click', '.expand', function() {
 		$(this).closest('.vacation').find('.comments').fadeToggle();
 	});
 
+prevent
 
 	event.preventDefault();
  
@@ -497,14 +499,51 @@ E o total
 
 **5.2 Taming CSS**
 
-
+	.css(<attr>, <value>)
+	.css(<attr>)
+	.css(<object>)
 
 **5.3 CSS I**
+
+Poríamos fazer assim
+
+	$(document).ready(function(){
+		$('#vacations').on('click', '.vacation', function() {
+			$(this).css('background-color', '#252b30');
+			$(this).css('border-color', '1px solid #967');
+		});
+	});
+
+Mas assim é melhor
+
+	$(document).ready(function(){
+		$('#vacations').on('click', '.vacation', function() {
+			$(this).css({'background-color': '#252b30',
+			             'border-color': '1px solid #967'});
+		});
+	});
 
 
 
 **5.4 CSS II**
 
+	$(this).find('.price').show();
+
+Assim fica melhor ainda:
+
+style.css
+
+	.highlighted {
+		background-color: #563;
+		border-color: 1px solid #967;
+	}
+	.highlighted .price {
+		display: block;
+	}
+
+vacation.js
+
+	$(this).addClass('highlighted');
 
 
 **5.5 Show Photo**
@@ -520,11 +559,20 @@ E o total
 
 **5.7 Animation**
 
+	.animate(<object>)
 
 
 **5.8 Animate I**
 
+	if (<vacation is highlighted) {
+			// animate the vacation up
+		} else {
+			// animate the vacation back down
+		}
 
+class
+
+	$(this).hasClass('highlighted');
 
 **5.9 Animate II**
 
@@ -532,7 +580,10 @@ E o total
 
 **5.10 Animation Speed**
 
-
+	$(this).animate({'top': '-10px'}, 'fast');
+	$(this).animate({'top': '-10px'}, 200);
+	$(this).animate({'top': '-10px'}, 'slow');
+	$(this).animate({'top': '-10px'}, 600);
 
 **5.11 Animate III**
 

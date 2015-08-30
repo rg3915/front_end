@@ -5,3 +5,17 @@
 .comments {
 	display: none;
 }
+.vacation {
+	-moz-transition: top 0.2s;
+	-o-transition: top 0.2s;
+	-webkit-transition: top 0.2s;
+	transition: top 0.2s;
+}
+.highlighted {
+	background-color: #563;
+	border-color: 1px solid #967;
+	top: -10px;
+}
+.highlighted .price {
+	display: block;
+}

@@ -5,7 +5,7 @@ $(document).ready(function(){
 		// var price = $('<p>From $399.99</p>');
 		var vacation = $(this).closest('.vacation');
 		var amount = vacation.data('price');
-		var price = $('<p>From $'+amount+'</p>');
+		var price = $('<p class="price">From $'+amount+'</p>');
 		vacation.append(price);
 		$(this).remove();
 		// price.appendTo($('.vacation'));
@@ -47,4 +47,20 @@ $(document).ready(function(){
 		// Show the comments ul
 		$(this).closest('.vacation').find('.comments').fadeToggle();
 	});
+
+	// css
+	$('#vacations').on('click', '.vacation', function() {
+		// $(this).css({'background-color': '#252b30',
+		//              'border-color': '1px solid #967'});
+		$(this).toggleClass('highlighted');
+		// if ($(this).hasClass('highlighted')) {
+		// 	$(this).animate({'top': '-10px'});
+		// } else {
+		// 	$(this).animate({'top': '0px'});
+		// };
+		$(this).find('.price').show();
+	});
+
+
+
 });
