@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Vacation Packages</title>
+		<link rel="stylesheet" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="vacation.js"></script>
 	</head>
@@ -19,7 +20,22 @@
 						<li>Amazing deal!</li>
 						<li>Want to go!</li>
 					</ul>
+					<p>
+						Tickets:
+						<input type="number" class="quantity" value="1" />
+					</p>
+					<p>Total price: $<span id="total">399.99</span></p>
 				</li>
+				<div>
+					<li class="confirmation">
+						<button>FLIGHT DETAILS</button>
+						<ul class="ticket">
+							<li>Destination: Honolulu, HI</li>
+							<li>Depart Date: February 20, 2013 at 09:30</li>
+							<li>Flight Number: 815</li>
+						</ul>
+					</li>
+				</div>
 				<li class="vacation" data-price='99.99'>
 					<h2>Orlando</h2>
 					<button>Get Price</button>

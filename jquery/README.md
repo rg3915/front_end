@@ -120,7 +120,7 @@ Procura por todos 'filhos' de 'destinations', no caso, 'li'.
 
 **3.6 Removing From the DOM**
 
-
+ 
 
  
 ### Acting on Interaction
@@ -275,6 +275,250 @@ Então
 
 
 **3.23 New Filter III**
+
+
+
+## Level 4 - Listening to DOM Events
+
+### On DOM Load
+
+	$('.confirmation').on('click', 'button', function(){
+		...		
+	});
+
+**4.2 On DOM Load**
+
+	$('.confirmation').on('click', 'button', function(){
+		$(this).closest('.confirmation').find('.ticket')		
+	});
+
+
+**4.3 On Load I**
+
+2 commands
+
+	.slideDown()
+	.slideUp()
+	.slideToggle()
+
+
+**4.4 On Load II**
+
+
+
+**4.5 Slide Effect I**
+
+	$('.confirmation').on('click', 'button', function(){
+		$(this).closest('.confirmation').find('.ticket').slideDown();
+	});
+
+Alert
+
+	alert($('button').length);
+
+**4.6 Slide Effect II**
+
+
+
+ 
+### Expanding on on()
+
+	$(document).ready(function(){
+		$('.confirmation').on('click', 'button', function(){
+			$(this).closest('.confirmation').find('.ticket').slideDown();
+		});
+		$('.confirmation').on('?', 'button', function(){
+			$(this).closest('.confirmation').find('.ticket').slideDown();
+		});
+	});
+
+**4.7 Expanding on on()**
+
+Mouse Events
+
+* click
+* dblclick
+* focusin
+* focusout
+* mousedown
+* mouseup
+* mousemove
+* mouseout
+* mouseover
+* mouseleave
+* mouseenter
+
+Então nosso código fica assim:
+
+	$(document).ready(function(){
+		$('.confirmation').on('click', 'button', function(){
+			$(this).closest('.confirmation').find('.ticket').slideDown();
+		});
+		$('.confirmation').on('mouseenter', 'button', function(){
+			$(this).closest('.confirmation').find('.ticket').slideDown();
+		});
+	});
+
+
+**4.8 Mouseover I**
+
+
+**4.9 Mouseover II**
+
+
+
+**4.10 Mouseleave**
+
+
+
+**4.11 Named Functions**
+
+Separe os comandos numa nova função
+
+	function showTicket() {
+		$(this).closest('.confirmation').find('.ticket').slideDown();
+	}
+
+
+ 
+### Keyboard Events
+
+**4.12 Keyboard Events**
+
+Keyboard Events (http://api.jquery.com/category/events/keyboard-events/)
+
+	keypress
+	keydown
+	keyup
+
+Form Events (http://api.jquery.com/category/events/form-events/)
+
+	blur
+	focus
+	select
+	submit
+	change
+
+
+**4.13 Keyup Event**
+
+	$('vacation').on('keyup', 'quantity', function() {
+		// Get the price for this vacation
+		// Get the quantity entered
+		// Set the total to price * quantity
+	});
+
+Veja que o código a seguir retorna uma string
+
+	var price = $(this).closest('.vacation').data('price');
+	'399.99'
+
+Então, use o sinal + para converter para inteiro
+
+	var price = +$(this).closest('.vacation').data('price');
+	399.99
+
+Então temos
+ 
+	$('vacation').on('keyup', 'quantity', function() {
+		// Get the price for this vacation
+		var price = +$(this).closest('.vacation').data('price');
+		// Get the quantity entered
+		// Set the total to price * quantity
+	});
+
+Veja os comandos
+
+	.val(<new value>)
+	.val()
+
+A quantidade fica assim
+
+	var quantity = +$(this).val();
+
+E o total
+
+	$('#total').text(price * quantity);
+
+**4.14 Keyup Event Handler I**
+
+
+
+**4.15 Keyup Event Handler II**
+
+
+
+**4.16 Another Event Handler**
+
+
+
+ 
+### Link Layover
+
+**4.17 Link Layover**
+
+
+
+**4.18 Link Events I**
+
+
+
+**4.19 Link Events II**
+
+
+
+**4.20 Event Parameter I**
+
+
+
+**4.21 Event Parameter II**
+
+
+## Level 5 - Styling
+
+### Taming CSS
+
+**5.2 Taming CSS**
+
+
+
+**5.3 CSS I**
+
+
+
+**5.4 CSS II**
+
+
+
+**5.5 Show Photo**
+
+
+
+**5.6 Refactoring to CSS**
+
+
+
+ 
+### Animation
+
+**5.7 Animation**
+
+
+
+**5.8 Animate I**
+
+
+
+**5.9 Animate II**
+
+
+
+**5.10 Animation Speed**
+
+
+
+**5.11 Animate III**
+
 
 
 
