@@ -4,6 +4,7 @@
   	<meta charset="utf-8">
     <title>Busca CEP</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
     
     <script>
@@ -20,7 +21,8 @@
 		    $scope.enter = function(e){
 		    	if(e.keyCode == 13){
 		    		$scope.busca();
-		    	}
+            console.log("Erro");
+		    	};
 		    };
 	    });
     </script>
@@ -29,15 +31,49 @@
 
   <body ng-app="app" ng-controller="MyCtrl">
   	<div class="container">
-      <h1>Busca CEP</h1>
-      	CEP: <input type="text" ng-model="cep" ng-keypress="enter($event)"/><br>
-      	<button ng-click="busca()">Buscar</button><br>
+      <h1>Busca CEP <a href="http://api.postmon.com.br/cep/{{ local_encontrado.cep }}">http://api.postmon.com.br/cep/{{ local_encontrado.cep }}</a></h1>
 
-        Logradouro: <input type="text" ng-model="local_encontrado.logradouro"><br>
-        Bairro: <input type="text" ng-model="local_encontrado.bairro"><br>
-        Cidade: <input type="text" ng-model="local_encontrado.cidade"><br>
-        Estado: <input type="text" ng-model="local_encontrado.estado"><br>
+     <form class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2 col-lg-2">
+            CEP
+          </label>
+          <div class="col-sm-6 col-lg-2">
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="cep" ng-keypress="enter($event)">
+              <button class="btn btn-primary" ng-click="busca()">Buscar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2 col-lg-2">
+            Logradouro
+          </label>
+          <div class="col-sm-2 col-lg-4">
+            <input type="text" class="form-control" ng-model="local_encontrado.logradouro" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2 col-lg-2">
+            Cidade
+          </label>
+          <div class="col-sm-6 col-lg-4">
+            <input type="text" class="form-control" ng-model="local_encontrado.cidade" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2 col-lg-2">
+            Estado
+          </label>
+          <div class="col-sm-6 col-lg-4">
+            <input type="text" class="form-control" ng-model="local_encontrado.estado" />
+          </div>
+        </div>
+      </form>
+
   	</div>
-  </body>
 
+  </body>
 </html>
+
