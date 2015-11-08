@@ -3,22 +3,41 @@
   <head>
   	<meta charset="utf-8">
     <title>Busca CEP</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    
     <script>
-	    function MyCtrl($scope){
-	    	$http.get('http://api.postmon.com.br/cep/91370000').success(function(local){
-	    		$scope.local_encontrado = local;
-	    	});
-	    };
+    	angular.module('app', []);
+    	angular.module('app').controller('MyCtrl', function MyCtrl($http, $scope){
+	    	
+		    $scope.busca = function(){
+		    	$http.get('http://api.postmon.com.br/cep/'+ $scope.cep).success(function(local){
+	    			$scope.local_encontrado = local;
+		    		console.log(local);
+		    	});
+		    };
+
+		    $scope.enter = function(e){
+		    	if(e.keyCode == 13){
+		    		$scope.busca();
+		    	}
+		    };
+	    });
     </script>
+
   </head>
-  <body ng-app ng-controller="MyCtrl">
+
+  <body ng-app="app" ng-controller="MyCtrl">
   	<div class="container">
       <h1>Busca CEP</h1>
+      	CEP: <input type="text" ng-model="cep" ng-keypress="enter($event)"/><br>
+      	<button ng-click="busca()">Buscar</button><br>
+
         Logradouro: <input type="text" ng-model="local_encontrado.logradouro"><br>
         Bairro: <input type="text" ng-model="local_encontrado.bairro"><br>
         Cidade: <input type="text" ng-model="local_encontrado.cidade"><br>
         Estado: <input type="text" ng-model="local_encontrado.estado"><br>
   	</div>
   </body>
+
 </html>
