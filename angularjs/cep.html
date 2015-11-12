@@ -11,16 +11,18 @@
     	angular.module('app', []);
     	angular.module('app').controller('MyCtrl', function MyCtrl($http, $scope){
 
-		    $scope.busca = function(){
-		    	$http.get('http://api.postmon.com.br/cep/'+ $scope.cep)
-            	.success(function(local){
-				  $scope.local_encontrado = local;
-	    		  console.log(local);
+		    	// $http.get('http://api.postmon.com.br/cep/'+ $scope.cep)
+        $scope.busca = function(){
+          $http.get('http://cep.correiocontrol.com.br/'+ $scope.cep + '.js')
+          	.success(function(callback){
+    				  $scope.local_encontrado = callback;
+              console.log(callback);
+  	    		  console.log(callback(correiocontrolcep()));
 		    	})
-            	.error(function(local,status){
-            	  console.log("Erro");
-           	      alert("Este CEP não existe!");
-            	});
+          	.error(function(e){
+          	  console.log("Erro");
+       	      alert("Este CEP não existe!");
+          	});
 		    };
 
 		    $scope.enter = function(e){
