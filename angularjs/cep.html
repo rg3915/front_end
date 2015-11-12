@@ -12,16 +12,19 @@
     	angular.module('app').controller('MyCtrl', function MyCtrl($http, $scope){
 	    	
 		    $scope.busca = function(){
-		    	$http.get('http://api.postmon.com.br/cep/'+ $scope.cep).success(function(local){
-	    			$scope.local_encontrado = local;
-		    		console.log(local);
-		    	});
+		    	$http.get('http://api.postmon.com.br/cep/'+ $scope.cep)
+            .success(function(local){
+	    			  $scope.local_encontrado = local;
+		    		  console.log(local);
+		    	})
+            .error(function(local,status){
+              console.log("Erro");
+            });
 		    };
 
 		    $scope.enter = function(e){
 		    	if(e.keyCode == 13){
 		    		$scope.busca();
-            console.log("Erro");
 		    	};
 		    };
 	    });
