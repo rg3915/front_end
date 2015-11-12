@@ -10,16 +10,17 @@
     <script>
     	angular.module('app', []);
     	angular.module('app').controller('MyCtrl', function MyCtrl($http, $scope){
-	    	
+
 		    $scope.busca = function(){
 		    	$http.get('http://api.postmon.com.br/cep/'+ $scope.cep)
-            .success(function(local){
-	    			  $scope.local_encontrado = local;
-		    		  console.log(local);
+            	.success(function(local){
+				  $scope.local_encontrado = local;
+	    		  console.log(local);
 		    	})
-            .error(function(local,status){
-              console.log("Erro");
-            });
+            	.error(function(local,status){
+            	  console.log("Erro");
+           	      alert("Este CEP não existe!");
+            	});
 		    };
 
 		    $scope.enter = function(e){
@@ -27,6 +28,7 @@
 		    		$scope.busca();
 		    	};
 		    };
+
 	    });
     </script>
 
