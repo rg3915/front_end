@@ -13,11 +13,10 @@
 
 		    	// $http.get('http://api.postmon.com.br/cep/'+ $scope.cep)
         $scope.busca = function(){
-          $http.get('http://cep.correiocontrol.com.br/'+ $scope.cep + '.js')
-          	.success(function(callback){
-    				  $scope.local_encontrado = callback;
-              console.log(callback);
-  	    		  console.log(callback(correiocontrolcep()));
+          $http.get('http://cep.correiocontrol.com.br/'+ $scope.cep + '.json')
+          	.success(function(local){
+    				  $scope.local_encontrado = local;
+              console.log(local);
 		    	})
           	.error(function(e){
           	  console.log("Erro");
@@ -38,7 +37,7 @@
 
   <body ng-app="app" ng-controller="MyCtrl">
   	<div class="container">
-      <h1>Busca CEP <a href="http://api.postmon.com.br/cep/{{ local_encontrado.cep }}">http://api.postmon.com.br/cep/{{ local_encontrado.cep }}</a></h1>
+      <h1>Busca CEP <a href="http://cep.correiocontrol.com.br/{{ local_encontrado.cep }}.json">http://cep.correiocontrol.com.br/{{ local_encontrado.cep }}.json</a></h1>
 
      <form class="form-horizontal">
         <div class="form-group">
@@ -74,7 +73,7 @@
             Cidade
           </label>
           <div class="col-sm-6 col-lg-4">
-            <input type="text" class="form-control" ng-model="local_encontrado.cidade" />
+            <input type="text" class="form-control" ng-model="local_encontrado.localidade" />
           </div>
         </div>
         <div class="form-group">
@@ -82,7 +81,7 @@
             Estado
           </label>
           <div class="col-sm-6 col-lg-4">
-            <input type="text" class="form-control" ng-model="local_encontrado.estado" />
+            <input type="text" class="form-control" ng-model="local_encontrado.uf" />
           </div>
         </div>
       </form>
