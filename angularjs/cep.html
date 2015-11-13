@@ -5,6 +5,7 @@
     <title>Busca CEP</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
     
     <script>
@@ -36,7 +37,10 @@
   </head>
 
   <body ng-app="app" ng-controller="MyCtrl">
-    <a href="https://github.com/rg3915/front_end"><span class="fa fa-github"></span> GitHub</a>
+    <div class="pull-right">
+      <a href="http://rg3915.github.io/front_end/"><span class="fa fa-home"></span> Home</a>
+    </div>
+
   	<div class="container">
       <h1>Busca CEP <a href="http://cep.correiocontrol.com.br/{{ local_encontrado.cep }}.json">http://cep.correiocontrol.com.br/{{ local_encontrado.cep }}.json</a></h1>
 
