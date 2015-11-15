@@ -6,6 +6,7 @@
   <title>Modal</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="mymodal.js"></script>
@@ -16,21 +17,24 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Atualizar valores
+  Modal
 </button>
+<div class="pull-right">
+  <a href="http://rg3915.github.io/front_end/"><span class="fa fa-home"></span> Home</a>
+</div>
 
 <div class="container">
-  <form class="form-horizontal col-sm-2" action="." method="POST">
+  <form class="form-horizontal col-sm-2">
       <div class="form-group">
         <label for="id_price">Preço</label>
         <input type="text" id="id_price" name="movie" class="form-control">
       </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <div class="">
           <button type="submit" id="id_submit" class="btn btn-primary">Salvar</button>
         </div>
-      </div>
+      </div> -->
   </form>
 </div>
 
