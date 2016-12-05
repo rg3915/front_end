@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flick Api</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body onload="handleButtonClick()">
+    <h1>Flick Api Load Photo</h1>
+    <div id="images"></div>
+
+<script>
+
+function jsonFlickrFeed(json) {
+  console.log(json);
+  
+  $.each(json.items, function(i, item) {
+    $("<img />").attr("src", item.media.m).appendTo("#images");
+  });
+};
+
+function handleButtonClick() {
+  $.ajax({
+    url: 'https://api.flickr.com/services/feeds/photos_public.gne',
+    dataType: 'jsonp',
+    data: { "tags": "carnival", "format": "json" }
+  });
+}
+</script>
+
+</body>
+</html>
