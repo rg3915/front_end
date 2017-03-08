@@ -10,5 +10,7 @@ function adicionar() {
   var textitem = document.createTextNode(c);
   item.appendChild(textitem);
   document.getElementById('lista').appendChild(item);
+  console.log(c);
   c++;
 }
+
