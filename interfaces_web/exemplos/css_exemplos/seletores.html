@@ -31,6 +31,12 @@
     p:before {
       content: '123 - ';
     }
+    .descendente {
+      color: red;
+    }
+    .filho {
+      color: blue;
+    }
   </style>
 </head>
 <body>
@@ -72,8 +78,18 @@
   </div>
 
   <div>
-    <p>Primeiro parágrafo.</p>
-    <p>Segundo parágrafo.</p>
+    <p>Terceiro parágrafo.</p>
+    <p>Quarto parágrafo.</p>
+  </div>
+
+  <div class="descendente">
+    <p><span>Span descendente de div.</span></p>
+    <p><a href="#"><span>Span descendente de div.</span></a></p>
+  </div>
+
+  <div class="filho">
+    <p><span>Span filho de <code>p</code>.</span></p>
+    <p><a href="#"><span>Span <b>não é</b> filho de <code>p</code></span></a></p>
   </div>
 </body>
 </html>
