@@ -10,6 +10,12 @@
     .filho > p {
       color: blue;
     }
+    nav ul {
+      color: red; /* descendente */
+    }
+    nav > ul {
+      color: blue; /* filho */
+    }
     .imediatamente-adjascente + p {
       color: red;
     }
@@ -43,6 +49,31 @@
 
   <p><a href="http://pt.stackoverflow.com/a/2257/761">http://pt.stackoverflow.com/a/2257/761</a></p>
 
+  <p><code>nav ul { … }</code> para os dois e <code>nav > ul { … }</code> para o menu, mas não o submenu</p>
+
+  <nav>
+    <ul>
+      <li>Um</li>
+      <li>Dois</li>
+      <li>
+        <ul>
+          <li>Submenu 1</li>
+          <li>Submenu 2</li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li>Um</li>
+      <li>Dois</li>
+      <li>
+        <ul>
+          <li>Submenu 1</li>
+          <li>Submenu 2</li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
   <h1>Seletores adjascentes</h1>
 
   <div class="imediatamente-adjascente">
@@ -59,6 +90,6 @@
 
   <p>Primeiro parágrafo adjascente a div.</p>
   <p>Segundo parágrafo adjascente a div.</p>
-
+  <p>Terceiro parágrafo adjascente a div.</p>
 </body>
 </html>
